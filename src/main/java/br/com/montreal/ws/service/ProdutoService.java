@@ -27,4 +27,6 @@ public interface ProdutoService {
 
 	List<Produto> getMock();
 
+	Produto createProduto();
+
 }

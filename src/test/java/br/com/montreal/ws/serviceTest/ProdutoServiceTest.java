@@ -7,7 +7,11 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.montreal.ws.model.Imagem;
 import br.com.montreal.ws.model.Produto;
@@ -22,7 +26,12 @@ import br.com.montreal.ws.service.ProdutoService;
  */
 
 public class ProdutoServiceTest extends ProdutoApiTests {
-
+	
+     
+    private RestTemplate restTemplate;
+     
+    private ObjectMapper MAPPER = new ObjectMapper();
+    
 	@Autowired
 	ProdutoService service;
 
@@ -40,6 +49,21 @@ public class ProdutoServiceTest extends ProdutoApiTests {
 	public void setup() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
+
+     
+    public ProdutoServiceTest() {
+        restTemplate = new RestTemplate();
+    }
+     
+    @Test
+    public void testCreateProduto() throws JsonProcessingException{
+ 
+        Produto produto = service.createProduto();  
+
+        Produto response = restTemplate.getForObject(BASE_PATH + "produto?id=" + produto.getId(), Produto.class);
+ 
+        System.out.println(response.getDescricao());
+    }
 
 	@Test
 	public void testListAll() {

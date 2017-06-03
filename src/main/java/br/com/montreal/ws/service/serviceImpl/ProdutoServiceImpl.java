@@ -13,8 +13,9 @@ import br.com.montreal.ws.service.ProdutoService;
 
 @Service
 public class ProdutoServiceImpl implements ProdutoService {
-	
-	@Autowired ProdutoDao dao;
+
+	@Autowired
+	ProdutoDao dao;
 
 	@Override
 	public List<Produto> listAll() {
@@ -39,13 +40,13 @@ public class ProdutoServiceImpl implements ProdutoService {
 	@Override
 	public Produto create(Produto produto) {
 		return dao.create(produto);
-		
+
 	}
 
 	@Override
 	public Produto update(Produto produto) {
 		return dao.update(produto);
-		
+
 	}
 
 	@Override
@@ -69,5 +70,13 @@ public class ProdutoServiceImpl implements ProdutoService {
 		return produtos;
 	}
 
-	
+	@Override
+	public Produto createProduto() {
+		Produto produto = new Produto();
+		produto.setDescricao("Arroz tipo 1 Riachuelo");
+		produto.setNome("Arroz");
+		produto = create(produto);
+		return produto;
+	}
+
 }
