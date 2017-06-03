@@ -21,7 +21,7 @@ import br.com.montreal.ws.service.ProdutoService;
  * 
  */
 
-public class ProdutoServiceTest extends ProdutoApiSuiteTest {
+public class ProdutoServiceTest extends ProdutoApiTests {
 
 	@Autowired
 	ProdutoService service;

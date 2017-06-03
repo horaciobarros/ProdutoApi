@@ -22,7 +22,7 @@ import br.com.montreal.ws.service.ProdutoService;
  * @author Horacio
  *
  */
-public class ImagemServiceTest extends ProdutoApiSuiteTest {
+public class ImagemServiceTest extends ProdutoApiTests {
 
 	@Autowired
 	ImagemService service;
