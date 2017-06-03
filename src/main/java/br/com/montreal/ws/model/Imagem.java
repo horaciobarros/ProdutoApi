@@ -25,9 +25,15 @@ public class Imagem {
 	
 	@NotNull
 	@Column(name="tipo")
-	private Long tipo;
+	private String tipo;
 	
-	@Lob
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
 	@Column(name="foto", columnDefinition = "BLOB",length=100000)
 	private byte[] foto;
 	

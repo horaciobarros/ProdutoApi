@@ -3,6 +3,7 @@ package br.com.montreal.ws.service;
 import java.util.List;
 
 import br.com.montreal.ws.model.Imagem;
+import br.com.montreal.ws.model.Produto;
 
 public interface ImagemService {
 
@@ -18,5 +19,9 @@ public interface ImagemService {
 	Imagem update(Imagem imagem);
 
 	Imagem delete(Imagem imagem);
+
+	public void createMockWithProduto(Produto p);
+	
+	public Imagem byId(Long id);
 
 }

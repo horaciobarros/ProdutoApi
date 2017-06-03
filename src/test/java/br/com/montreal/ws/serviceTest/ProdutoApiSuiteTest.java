@@ -11,7 +11,7 @@ import br.com.montreal.ws.controller.StartApplication;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(classes = StartApplication.class)
-public class ProdutoApiTest {
+public class ProdutoApiSuiteTest {
 	
 	@Test
 	public void contextLoads() {

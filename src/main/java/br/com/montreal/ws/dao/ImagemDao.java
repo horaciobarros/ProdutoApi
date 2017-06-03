@@ -19,4 +19,6 @@ public interface ImagemDao {
 
 	Imagem delete(Imagem imagem);
 
+	public Imagem byId(Long id);
+
 }
