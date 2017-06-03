@@ -31,7 +31,7 @@ public class Produto {
 	private String descricao;
 	
 	@ManyToOne
-	@JoinColumn(name="idProdutoPai")
+	@JoinColumn(name="id_produto_pai")
 	private Produto produtoPai;
 	
 	public Long getId() {

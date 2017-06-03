@@ -23,7 +23,7 @@ public interface ProdutoService {
 
 	Produto update(Produto produto);
 
-	Produto delete(Produto produto);
+	void delete(Produto produto);
 
 	List<Produto> getMock();
 

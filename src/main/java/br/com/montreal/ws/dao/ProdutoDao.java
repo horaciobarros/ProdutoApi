@@ -25,6 +25,6 @@ public interface ProdutoDao {
 
 	Produto update(Produto produto);
 
-	Produto delete(Produto produto);
+	void delete(Produto produto);
 
 }

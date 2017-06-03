@@ -103,9 +103,9 @@ public class ProdutoRestController {
 	public ResponseEntity<Produto> delete(@RequestBody Produto produto) {
 
 		try {
-			produto = service.delete(produto);
+			service.delete(produto);
 
-			return new ResponseEntity<Produto>(produto, HttpStatus.OK);
+			return new ResponseEntity<Produto>(HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Produto>(produto, HttpStatus.BAD_REQUEST);
 		}

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -38,7 +39,7 @@ public class ProdutoDaoImpl implements ProdutoDao {
 	@Override
 	public Produto byId(Long id) {
 		StringBuilder jpql = new StringBuilder().append("SELECT p ").append("FROM Produto p  ") //
-				.append("INNER JOIN p.produtoPai pai  ").append("WHERE p.id = :idPai ");
+				.append("WHERE p.id = :id ");
 		Query query = em.createQuery(jpql.toString(),Produto.class);
 		query.setParameter("id", id);
 
@@ -46,12 +47,14 @@ public class ProdutoDaoImpl implements ProdutoDao {
 	}
 
 	@Override
+	@Transactional
 	public Produto create(Produto produto) {
 		em.persist(produto);
 		return produto;
 	}
 
 	@Override
+	@Transactional
 	public Produto update(Produto produto) {
 		em.merge(produto);
 		return produto;
@@ -59,9 +62,9 @@ public class ProdutoDaoImpl implements ProdutoDao {
 	}
 
 	@Override
-	public Produto delete(Produto produto) {
-		em.remove(produto);
-		return produto;
+	@Transactional
+	public void delete(Produto produto) {
+		em.remove(em.getReference(Produto.class, produto.getId()));
 
 	}
 
