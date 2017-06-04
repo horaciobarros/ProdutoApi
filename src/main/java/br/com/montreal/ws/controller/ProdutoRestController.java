@@ -75,7 +75,7 @@ public class ProdutoRestController {
 		return gson.toJson(produtos);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "update", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.POST, value = "create", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Produto> update(@RequestBody Produto produto) {
 
 		try {
@@ -87,7 +87,7 @@ public class ProdutoRestController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "create", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.PUT, value = "update", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Produto> create(@RequestBody Produto produto) {
 
 		try {

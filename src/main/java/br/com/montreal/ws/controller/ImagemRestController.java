@@ -43,7 +43,7 @@ public class ImagemRestController {
 		return gson.toJson(imagens);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "updateImagem", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.POST, value = "createImagem", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Imagem> update(@RequestBody Imagem imagem) {
 
 		try {
@@ -55,7 +55,7 @@ public class ImagemRestController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "createImagem", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.PUT, value = "updateImagem", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Imagem> create(@RequestBody Imagem imagem) {
 
 		try {

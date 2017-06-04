@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.util.AssertionErrors;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.client.RestTemplate;
@@ -17,6 +18,7 @@ import br.com.montreal.ws.model.Imagem;
 import br.com.montreal.ws.model.Produto;
 import br.com.montreal.ws.service.ImagemService;
 import br.com.montreal.ws.service.ProdutoService;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Teste da service de produto
@@ -58,12 +60,26 @@ public class ProdutoServiceTest extends ProdutoApiTests {
     @Test
     public void testCreateProduto() throws JsonProcessingException{
  
+        Produto produto = new Produto();
+		produto.setDescricao("Café Três Corações");
+		produto.setNome("Café");
+        Produto response = restTemplate.postForObject(BASE_PATH + "create", produto, Produto.class);
+ 
+        assertThat(response.getId() != null);
+
+    }
+    
+    @Test
+    public void testFindProduto() throws JsonProcessingException{
+ 
         Produto produto = service.createProduto();  
 
         Produto response = restTemplate.getForObject(BASE_PATH + "produto?id=" + produto.getId(), Produto.class);
  
-        System.out.println(response.getDescricao());
+        assertThat(response.getId() != null);
+
     }
+
 
 	@Test
 	public void testListAll() {
