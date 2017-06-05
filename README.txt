@@ -20,4 +20,6 @@ assertThat(response.getId() != null);
 Produto response = restTemplate.getForObject(BASE_PATH + "produto?id=" + produto.getId(), Produto.class);
 assertThat(response.getId() != null);
 
-3) 
+3) Executando na linha de comando:
+
+java -jar produtoapi-0.0.1-SNAPSHOT.jar
